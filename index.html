@@ -235,6 +235,20 @@
             const loader = document.querySelector('.loader-wrapper');
             loader.classList.add('loader-hidden');
             checkAuth(); // Sayfa yüklendiğinde giriş kontrolü yap
+
+            // Sayfa açılır açılmaz müziği çalmayı dene (tarayıcı izin verirse)
+            // Otomatik çalma politikaları yüzünden çoğu tarayıcı sadece sessiz müziğe izin veriyor.
+            bgMusic.muted = true;
+            bgMusic.play().then(() => {
+                musicPlaying = true;
+                musicToggle.textContent = '🎵';
+                // Başarılıysa kısa bir süre sonra sesi açmayı dene.
+                setTimeout(() => { bgMusic.muted = false; }, 500);
+            }).catch(() => {
+                // Otomatik çalma engellendi; kullanıcı butona basınca çalacak.
+                musicPlaying = false;
+                musicToggle.textContent = '🔇';
+            });
         });
 
         // --- KEHANET KÜRESİ SİSTEMİ ---
@@ -430,6 +444,8 @@
                 bgMusic.pause();
                 musicToggle.textContent = '🔇';
             } else {
+                // Kullanıcı etkileşimi ile çalma izni sağlanır.
+                bgMusic.muted = false;
                 bgMusic.play().catch(e => console.log("Ses çalınamadı:", e));
                 musicToggle.textContent = '🎵';
             }
