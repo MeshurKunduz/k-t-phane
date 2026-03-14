@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karanlık Kütüphane - Hakkımızda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">👁️ Karanlık Kütüphane</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="mitoloji.html">Mitoloji (Wiki)</a></li>
+            <li><a href="sozluk.html">Yeraltı Sözlük</a></li>
+            <li><a href="hakkimizda.html" class="active">Hakkımızda</a></li>
+            <li><a href="https://discord.gg/caXr8amGg2" target="_blank" class="discord-btn-anim">Discord'a Katıl</a></li>
+            
+            <li id="nav-login" style="margin-left: 20px;"><a href="#" class="login-btn" onclick="openModal('loginModal')">Giriş Yap</a></li>
+            <li id="nav-register"><a href="#" class="register-btn" onclick="openModal('registerModal')">Hesap Aç</a></li>
+
+            <li id="nav-profile" style="display: none; margin-left: 20px;"><a href="#" style="color: #c5a880; font-weight: bold;">👤 Profilim</a></li>
+            <li id="nav-logout" style="display: none;"><a href="#" onclick="simulateLogout()" style="color: #e74c3c;">Çıkış Yap</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1 style="color: #c5a880; font-size: 3rem;">Biz Kimiz?</h1>
+            <p style="color: #95a5a6; font-size: 1.2rem;">Karanlığın içindeki bilgiyi arayanların topluluğu.</p>
+        </div>
+
+        <div class="about-section parchment-effect">
+            <h2>📜 Kuruluş Hikayesi</h2>
+            <p>Karanlık Kütüphane, mitolojinin tozlu sayfalarını modern dünyanın dijital araçlarıyla birleştirmek amacıyla kuruldu. Amacımız, sadece eski hikayeleri anlatmak değil; bu hikayelerin arkasındaki felsefeyi, korkuyu ve tutkuyu günümüze taşımaktır. Amon'un Gözü, her şeyi gören ve bilen bir sembol olarak, bu bilgi arayışımızın merkezinde yer alır.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>🎯 Vizyonumuz</h2>
+            <p>Sadece bir wiki veya sözlük değil, yaşayan bir topluluk oluşturuyoruz. Discord sunucumuzda tartışılan teoriler, web sitemizdeki "Yeraltı Sözlük"te yankılanır. Mitoloji tutkunlarını, FRP oyuncularını ve tarih meraklılarını tek bir çatı altında, "Karanlık Kütüphane"de buluşturuyoruz.</p>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <h2 style="color: #66fcf1; text-align: left; border-bottom: 1px solid #2c3e50; padding-bottom: 10px; font-size: 2rem;">🛠️ Geliştirici Ekip</h2>
+            <div class="team-grid">
+                <div class="team-member" onclick="showTeam('Yönetim')" style="cursor: pointer;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">👑</div>
+                    <h3>Yönetim</h3>
+                    <span>Proje Lideri & Kurucu</span>
+                </div>
+                <div class="team-member" onclick="showTeam('Muhafızlar')" style="cursor: pointer;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🛡️</div>
+                    <h3>Muhafızlar</h3>
+                    <span>Topluluk Yöneticileri</span>
+                </div>
+                <div class="team-member" onclick="showTeam('Amon')" style="cursor: pointer;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🤖</div>
+                    <h3>Amon</h3>
+                    <span>Sistem Botu & Gözcü</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <h2 style="color: #c5a880; text-align: left; border-bottom: 1px solid #2c3e50; padding-bottom: 10px; font-size: 2rem;">🆕 Son Eklenen Efsaneler</h2>
+            <div id="latestWikiGrid" class="wiki-grid" style="margin-top: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;"></div>
+        </div>
+
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Yukarı Çık">▲</button>
+
+    <!-- EKİP MODALI -->
+    <div id="teamModal" class="modal-overlay">
+        <div class="modal-box" style="width: 80%; max-width: 900px;">
+            <span class="close-btn" onclick="closeModal('teamModal')">&times;</span>
+            <h2 id="teamModalTitle">Ekip Üyeleri</h2>
+            <div id="teamModalContent" class="team-modal-grid"></div>
+        </div>
+    </div>
+
+    <!-- MODALLER (Diğer sayfalarla aynı) -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Yeraltı'na Dön</h2>
+            <p style="color: #e74c3c; font-size: 0.9rem; margin-bottom: 15px;" id="loginWarning"></p>
+            <button class="social-btn discord-btn" onclick="simulateLogin(event)">🎮 Discord İle Giriş Yap</button>
+            <button class="social-btn mail-btn" onclick="simulateLogin(event)">✉️ Mail İle Hızlı Giriş</button>
+            <div class="divider">veya klasik yöntem</div>
+            <form class="auth-form" onsubmit="simulateLogin(event)">
+                <input type="text" class="auth-input" placeholder="Kullanıcı Adı" required>
+                <input type="password" class="auth-input" placeholder="Şifre" required>
+                <button type="submit" class="auth-submit">Giriş Yap</button>
+            </form>
+            <span class="switch-modal" onclick="switchModal('loginModal', 'registerModal')">Hesabın yok mu? Hemen bir tane aç.</span>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-btn" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Karanlığa Katıl</h2>
+            <button class="social-btn discord-btn" onclick="simulateLogin(event)">🎮 Discord İle Kayıt Ol</button>
+            <button class="social-btn mail-btn" onclick="simulateLogin(event)">✉️ Mail İle Hızlı Kayıt</button>
+            <div class="divider">veya manuel kayıt ol</div>
+            <form class="auth-form" onsubmit="simulateLogin(event)">
+                <input type="email" class="auth-input" placeholder="Geçerli E-Posta Adresi" required>
+                <input type="text" class="auth-input" placeholder="Tekil Kullanıcı Adı Belirle" required>
+                <input type="password" class="auth-input" placeholder="Güçlü Bir Şifre Belirle" required>
+                <button type="submit" class="auth-submit">Hesap Oluştur</button>
+            </form>
+            <span class="switch-modal" onclick="switchModal('registerModal', 'loginModal')">Zaten bir ruhun var mı? Giriş Yap.</span>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => { document.querySelector('.loader-wrapper').classList.add('loader-hidden'); });
+
+        let isLoggedIn = false;
+        function openModal(modalId) { document.getElementById(modalId).style.display = 'flex'; }
+        function closeModal(modalId) { document.getElementById(modalId).style.display = 'none'; }
+        function switchModal(closeId, openId) { closeModal(closeId); openModal(openId); }
+        window.onclick = function(event) { if (event.target.classList.contains('modal-overlay')) { event.target.style.display = "none"; } }
+        function simulateLogin(event) { event.preventDefault(); isLoggedIn = true; closeModal('loginModal'); closeModal('registerModal'); document.getElementById('nav-login').style.display = 'none'; document.getElementById('nav-register').style.display = 'none'; document.getElementById('nav-profile').style.display = 'inline-block'; document.getElementById('nav-logout').style.display = 'inline-block'; document.getElementById('loginWarning').innerText = ""; }
+        function simulateLogout() { isLoggedIn = false; document.getElementById('nav-profile').style.display = 'none'; document.getElementById('nav-logout').style.display = 'none'; document.getElementById('nav-login').style.display = 'inline-block'; document.getElementById('nav-register').style.display = 'inline-block'; }
+        
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) scrollTopBtn.style.display = "block";
+            else scrollTopBtn.style.display = "none";
+        };
+        function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+        // --- EKİP GÖSTERME SİSTEMİ ---
+        const teamData = {
+            'Yönetim': [
+                { name: 'ErBörü', title: 'Kurucu', avatar: 'avatars/erboru.png' },
+                { name: 'meshur_kunduz', title: 'Geliştirici', avatar: 'avatars/meshur_kunduz.png' }
+            ],
+            'Muhafızlar': [
+                { name: 'Cankan', title: 'Yönetici', avatar: 'avatars/cankan.png' },
+                { name: 'herry_00', title: 'Yönetici', avatar: 'avatars/herry_00.png' },
+                { name: 'ishigami._.', title: 'Yönetici', avatar: 'avatars/ishigami.png' },
+                { name: 'bohalbayi', title: 'Yönetici', avatar: 'avatars/bohalbayi.png' },
+                { name: 'sait_trman.', title: 'Yönetici', avatar: 'avatars/sait_trman.png' }
+            ],
+            'Amon': [
+                { name: 'Amon', title: 'Sistem Botu & Gözcü', avatar: 'avatars/amon.png' },
+                { name: 'Erinyeler', title: 'Sistem Botu', avatar: 'avatars/erinyeler.png' },
+                { name: 'Sınır', title: 'Sistem Botu', avatar: 'avatars/sinir.png' }
+            ]
+        };
+
+        function showTeam(teamName) {
+            const members = teamData[teamName];
+            if (!members) return;
+
+            const modalTitle = document.getElementById('teamModalTitle');
+            const modalContent = document.getElementById('teamModalContent');
+
+            modalTitle.innerText = teamName + " Ekibi";
+            modalContent.innerHTML = ''; // Önceki içeriği temizle
+
+            members.forEach(member => {
+                modalContent.innerHTML += `
+                    <div class="team-modal-member">
+                        <img src="${member.avatar}" alt="${member.name}">
+                        <div class="team-modal-member-info">
+                            <h4>${member.name}</h4>
+                            <p>${member.title}</p>
+                        </div>
+                    </div>`;
+            });
+
+            openModal('teamModal');
+        }
+
+        // --- SON EKLENEN MAKALELER ---
+        const recentArticles = [
+            { name: "Kerberos", url: "kerberos.html", icon: "🐕", desc: "Yeraltı kapısının üç başlı bekçisi." },
+            { name: "Hekatonkheirler", url: "hekatonkheirler.html", icon: "🖐️", desc: "Yüz kollu devasa savaşçılar." },
+            { name: "Prometheus", url: "prometheus.html", icon: "🔥", desc: "İnsanlığa ateşi veren titan." },
+            { name: "Pandora", url: "pandora.html", icon: "🏺", desc: "İlk kadın ve açılan kutu." }
+        ];
+
+        const latestGrid = document.getElementById('latestWikiGrid');
+        recentArticles.forEach(item => {
+            latestGrid.innerHTML += `
+                <div class="wiki-card" onclick="window.location.href='${item.url}'" style="padding: 20px; cursor: pointer;">
+                    <h3 style="margin:0; font-size: 1.3rem; color: #66fcf1;">${item.icon} ${item.name}</h3>
+                    <p style="font-size: 0.95rem; color: #c5c6c7; margin-top: 10px;">${item.desc}</p>
+                </div>`;
+        });
+    </script>
+</body>
+</html>

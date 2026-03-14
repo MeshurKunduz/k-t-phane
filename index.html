@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karanlık Kütüphane - Ana Sayfa</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* AMON'UN KÜRESİ İÇİN ÖZEL TASARIMLAR */
+        .oracle-container {
+            text-align: center;
+            margin: 60px auto;
+            padding: 40px;
+            background: rgba(20, 24, 28, 0.85);
+            border-radius: 15px;
+            border: 1px solid #45a29e;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            max-width: 800px;
+            position: relative;
+        }
+
+        .glowing-orb {
+            width: 150px; 
+            height: 150px;
+            /* Daha derinlikli, 3 boyutlu küre efekti */
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                        radial-gradient(circle, #0b0c10 15%, #1f2833 40%, #45a29e 85%, #66fcf1 100%);
+            border-radius: 50%;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 0 40px rgba(69, 162, 158, 0.5), inset 0 0 30px #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            user-select: none;
+            /* Süzülme ve Nabız Animasyonu */
+            animation: floatOrb 6s ease-in-out infinite, pulseGlow 4s infinite alternate;
+        }
+
+        /* Dış Enerji Halkası */
+        .glowing-orb::after {
+            content: '';
+            position: absolute;
+            top: -12px; left: -12px; right: -12px; bottom: -12px;
+            border-radius: 50%;
+            border: 2px dashed rgba(102, 252, 241, 0.2);
+            border-top-color: rgba(102, 252, 241, 0.6);
+            border-bottom-color: transparent;
+            animation: spinRing 12s linear infinite;
+            pointer-events: none;
+        }
+
+        .glowing-orb:hover {
+            box-shadow: 0 0 80px #66fcf1, inset 0 0 20px #45a29e;
+            text-shadow: 0 0 15px #fff;
+            color: #fff;
+        }
+
+        @keyframes floatOrb {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 30px rgba(69, 162, 158, 0.4), inset 0 0 40px #000; }
+            100% { box-shadow: 0 0 60px rgba(102, 252, 241, 0.7), inset 0 0 10px #1f2833; }
+        }
+
+        @keyframes spinRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .shaking {
+            /* Tıklandığında diğer animasyonları ez ve kaotik titret */
+            animation: mysticalShake 0.6s cubic-bezier(.36,.07,.19,.97) both !important;
+        }
+
+        @keyframes mysticalShake {
+            0% { transform: translate(0, 0) scale(1); filter: hue-rotate(0deg); }
+            15% { transform: translate(-5px, -5px) scale(1.1); }
+            30% { transform: translate(5px, 5px) scale(1.1); filter: hue-rotate(90deg); }
+            45% { transform: translate(-5px, 5px) scale(1.15); filter: hue-rotate(180deg); }
+            60% { transform: translate(5px, -5px) scale(1.1); }
+            75% { transform: translate(-5px, 0) scale(1.05); filter: hue-rotate(270deg); }
+            100% { transform: translate(0, 0) scale(1); filter: hue-rotate(360deg); }
+        }
+
+        .prophecy-text {
+            color: #c5a880;
+            font-size: 1.3rem;
+            font-style: italic;
+            min-height: 60px;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            line-height: 1.6;
+        }
+
+        /* Discord Butonu Yanıp Sönme Efekti */
+        @keyframes discordPulse {
+            0% { box-shadow: 0 0 5px #7289da; transform: scale(1); border-color: #7289da; }
+            100% { box-shadow: 0 0 20px #7289da; transform: scale(1.1); border-color: #66fcf1; color: #fff; text-shadow: 0 0 8px #7289da; background: rgba(114, 137, 218, 0.3); }
+        }
+        
+        .nav-links a.discord-btn-anim {
+            color: #7289da; font-weight: bold; border: 1px solid #7289da;
+            animation: discordPulse 0.8s ease-in-out infinite alternate;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">👁️ Karanlık Kütüphane</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Ana Sayfa</a></li>
+            <li><a href="mitoloji.html">Mitoloji (Wiki)</a></li>
+            <li><a href="sozluk.html">Yeraltı Sözlük</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a href="https://discord.gg/caXr8amGg2" target="_blank" class="discord-btn-anim">Discord'a Katıl</a></li>
+            
+            <li id="nav-login" style="margin-left: 20px;"><a href="#" class="login-btn" onclick="openModal('loginModal')">Giriş Yap</a></li>
+            <li id="nav-register"><a href="#" class="register-btn" onclick="openModal('registerModal')">Hesap Aç</a></li>
+
+            <li id="nav-profile" style="display: none; margin-left: 20px;"><a href="#" style="color: #c5a880; font-weight: bold;">👤 Profilim</a></li>
+            <li id="nav-logout" style="display: none;"><a href="#" onclick="simulateLogout()" style="color: #e74c3c;">Çıkış Yap</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <div style="text-align: left; margin-bottom: 20px;">
+            <h1 style="color: #c5a880; font-size: 3.5rem; margin-bottom: 10px;">Gölgelerin Arasına Hoş Geldin</h1>
+            <p style="color: #95a5a6; font-size: 1.25rem; margin-bottom: 10px;">Burası sıradan bir platform değil. Hakikatin, efsanelerin ve kanlı tarihin saklandığı merkezdesin.</p>
+        </div>
+
+        <div class="oracle-container">
+            <h2 style="color: #66fcf1; margin-bottom: 30px; font-size: 2rem; letter-spacing: 1px;">Amon'un Gözü</h2>
+            
+            <div id="amonOrb" class="glowing-orb" onclick="getProphecy()">
+                👁️
+            </div>
+            
+            <p id="prophecyDisplay" class="prophecy-text">
+                "Karanlığın fısıltılarını duymak için küreye dokun..."
+            </p>
+        </div>
+
+        <div style="text-align: left; margin-top: 50px;">
+            <h2 style="color: #45a29e; font-size: 2rem; border-bottom: 1px solid #2c3e50; padding-bottom: 10px;">Evrenlere Giriş</h2>
+            <div id="myth-symbols-container" style="margin-top: 10px; font-size: 1.5rem; color: #c5a880; letter-spacing: 15px; height: 40px; transition: opacity 0.5s ease-in-out;">🔱 ⚡ 🦉</div>
+        </div>
+
+        <div class="wiki-grid" style="margin-top: 30px; margin-bottom: 60px;">
+            <div class="wiki-card card-greek" onclick="window.location.href='yunan-mitolojisi.html'">
+                <h3>🏛️ Yunan Mitolojisi</h3>
+                <p>Olympos'un zirvesinden Yeraltı'nın derinliklerine; Zeus, Hades, Poseidon ve titanların savaşı.</p>
+            </div>
+            <div class="wiki-card card-egypt" onclick="window.location.href='misir-mitolojisi.html'">
+                <h3>🌵 Mısır Mitolojisi</h3>
+                <p>Piramitlerin gölgesinde Ra, Anubis, Osiris ve çöl rüzgarlarının taşıdığı sırlar.</p>
+            </div>
+            <div class="wiki-card card-nordic" onclick="window.location.href='iskandinav-mitolojisi.html'">
+                <h3>❄️ İskandinav Mitolojisi</h3>
+                <p>Ragnarök'ün ayak sesleri; Odin, Thor, Loki ve soğuk kuzeyin devasa yaratıkları.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Yukarı Çık">▲</button>
+    
+    <div id="copyToast" class="toast">Kehanet zihnine kazındı (Kopyalandı)</div>
+
+    <!-- Arka Plan Müziği -->
+    <audio id="bgMusic" loop preload="none">
+        <source src="mythic-bg.mp3" type="audio/mpeg">
+        Tarayıcınız ses dosyasını desteklemiyor.
+    </audio>
+    <button id="musicToggle" style="position: fixed; bottom: 25px; left: 30px; z-index: 99; background: rgba(11,12,16,0.8); border: 1px solid #c5a880; color: #c5a880; padding: 10px; border-radius: 50%; cursor: pointer; width: 50px; height: 50px; font-size: 18px; transition: 0.3s;" title="Müzik Aç/Kapat">🎵</button>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Yeraltı'na Dön</h2>
+            <p style="color: #e74c3c; font-size: 0.9rem; margin-bottom: 15px;" id="loginWarning"></p>
+            
+            <button class="social-btn discord-btn" onclick="simulateLogin(event)">🎮 Discord İle Giriş Yap</button>
+            <button class="social-btn mail-btn" onclick="simulateLogin(event)">✉️ Mail İle Hızlı Giriş</button>
+            
+            <div class="divider">veya klasik yöntem</div>
+            
+            <form class="auth-form" onsubmit="handleLogin(event)">
+                <input type="text" id="loginUser" class="auth-input" placeholder="Kullanıcı Adı" required>
+                <input type="password" id="loginPass" class="auth-input" placeholder="Şifre" required>
+                <button type="submit" class="auth-submit">Giriş Yap</button>
+            </form>
+            
+            <span class="switch-modal" onclick="switchModal('loginModal', 'registerModal')">Hesabın yok mu? Hemen bir tane aç.</span>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-btn" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Karanlığa Katıl</h2>
+            
+            <button class="social-btn discord-btn" onclick="simulateLogin(event)">🎮 Discord İle Kayıt Ol</button>
+            <button class="social-btn mail-btn" onclick="simulateLogin(event)">✉️ Mail İle Hızlı Kayıt</button>
+            
+            <div class="divider">veya manuel kayıt ol</div>
+            
+            <form class="auth-form" onsubmit="handleRegister(event)">
+                <input type="email" id="regEmail" class="auth-input" placeholder="Geçerli E-Posta Adresi" required>
+                <input type="text" id="regUser" class="auth-input" placeholder="Kullanıcı Adı Belirle" required>
+                <input type="password" id="regPass" class="auth-input" placeholder="Güçlü Bir Şifre Belirle" required>
+                <button type="submit" class="auth-submit">Hesap Oluştur</button>
+            </form>
+            
+            <span class="switch-modal" onclick="switchModal('registerModal', 'loginModal')">Zaten bir ruhun var mı? Giriş Yap.</span>
+        </div>
+    </div>
+
+    <script>
+        // --- YÜKLENİYOR EKRANI ---
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-wrapper');
+            loader.classList.add('loader-hidden');
+            checkAuth(); // Sayfa yüklendiğinde giriş kontrolü yap
+        });
+
+        // --- KEHANET KÜRESİ SİSTEMİ ---
+        const prophecies = [
+            "Amon 7/24 uyanık. Sen uyurken kütüphaneyi kimin izlediğini sanıyorsun?",
+            "Siyasetin karanlık odalarında dönen oyunlar, tanrıların entrikalarını bile gölgede bırakır.",
+            "Hades yeraltına sürülmedi, o sadece Olympos'un yozlaşmışlığından iğrendi.",
+            "Sihirdar Vadisi'nde dökülen kanlar, Olympos'taki tanrıların sadece sabah eğlencesidir.",
+            "Tarihi kazananlar yazar, ama fısıltıları her zaman yeraltı saklar.",
+            "Karanlığa çok uzun süre bakarsan, Amon da sana bakmaya başlar.",
+            "Modern çağın çelik canavarları, eski çağın devasa titanlarından daha acımasızdır."
+        ];
+
+        let isAnimating = false;
+
+        function getProphecy() {
+            if (isAnimating) return; // Animasyon bitmeden tekrar tıklanmasını engeller
+            isAnimating = true;
+
+            // --- SES EFEKTİ ---
+            // Not: 'public' klasörüne 'mystic.mp3' adında bir dosya eklemelisiniz.
+            const audio = new Audio('mystic.mp3');
+            audio.volume = 0.5; // Ses seviyesi (%50)
+            audio.play().catch(e => console.log("Ses çalınamadı (Dosya eksik olabilir):", e));
+
+            const orb = document.getElementById('amonOrb');
+            const displayText = document.getElementById('prophecyDisplay');
+
+            // 1. Kehaneti önceden seç
+            const randomIndex = Math.floor(Math.random() * prophecies.length);
+            const selectedProphecy = prophecies[randomIndex];
+
+            // 2. Panoya kopyala (Animasyon başlamadan hemen önce)
+            navigator.clipboard.writeText(selectedProphecy).then(() => {
+                showToast("👁️ Kehanet zihnine kazındı (Kopyalandı)");
+            }).catch(err => console.error("Kopyalama hatası:", err));
+
+            // Küreyi titret ve yazıyı gizle
+            orb.classList.add('shaking');
+            displayText.style.opacity = 0;
+
+            setTimeout(() => {
+                // Titremeyi durdur
+                orb.classList.remove('shaking');
+                
+                // Seçilen kehaneti yaz
+                displayText.innerText = '"' + selectedProphecy + '"';
+                
+                // Yazıyı yavaşça göster
+                displayText.style.opacity = 1;
+                isAnimating = false;
+            }, 600); // 0.6 saniye animasyon süresi
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("copyToast");
+            toast.innerText = message;
+            toast.className = "toast show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+
+        // --- RASTGELE SEMBOL DEĞİŞİMİ ---
+        const mythSymbols = ['🔱', '⚡', '🦉', '🦅', '🐺', '🐍', '👁️', '⚖️', '🍷', '🌙', '🔥', '💀', '🏺', '⚔️', '🗝️', '🧬'];
+        const symbolContainer = document.getElementById('myth-symbols-container');
+
+        setInterval(() => {
+            if (!symbolContainer) return;
+            
+            symbolContainer.style.opacity = 0; // Önce söndür (fade-out)
+            
+            setTimeout(() => {
+                // 3 tane rastgele sembol seç
+                let randomSet = "";
+                for(let i=0; i<3; i++) {
+                    randomSet += mythSymbols[Math.floor(Math.random() * mythSymbols.length)] + " ";
+                }
+                symbolContainer.innerText = randomSet;
+                symbolContainer.style.opacity = 1; // Sonra yak (fade-in)
+            }, 500); // Yarım saniye bekle
+        }, 3500); // Her 3.5 saniyede bir değiştir
+
+        // --- GİRİŞ / ÇIKIŞ SİSTEMİ (ÖNCEKİ GİBİ) ---
+        function openModal(modalId) { document.getElementById(modalId).style.display = 'flex'; }
+        function closeModal(modalId) { document.getElementById(modalId).style.display = 'none'; }
+        function switchModal(closeId, openId) { closeModal(closeId); openModal(openId); }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = "none";
+            }
+        }
+
+        // --- GERÇEK GİRİŞ VE KAYIT SİSTEMİ ---
+        async function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('loginUser').value;
+            const password = document.getElementById('loginPass').value;
+            const warning = document.getElementById('loginWarning');
+
+            try {
+                const res = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    localStorage.setItem('currentUser', data.username);
+                    checkAuth();
+                    closeModal('loginModal');
+                    warning.innerText = "";
+                } else {
+                    warning.innerText = "⚠️ " + data.message;
+                }
+            } catch (err) {
+                console.error(err);
+                warning.innerText = "⚠️ Sunucu hatası oluştu.";
+            }
+        }
+
+        async function handleRegister(event) {
+            event.preventDefault();
+            const email = document.getElementById('regEmail').value;
+            const username = document.getElementById('regUser').value;
+            const password = document.getElementById('regPass').value;
+
+            try {
+                const res = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, username, password })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    alert(data.message);
+                    switchModal('registerModal', 'loginModal');
+                } else {
+                    alert("Hata: " + data.message);
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            checkAuth();
+        }
+        
+        // Sadece HTML'deki onclick referansını korumak için alias
+        function simulateLogout() { logout(); }
+
+        function checkAuth() {
+            const user = localStorage.getItem('currentUser');
+            if (user) {
+                document.getElementById('nav-login').style.display = 'none';
+                document.getElementById('nav-register').style.display = 'none';
+                document.getElementById('nav-profile').style.display = 'inline-block';
+                document.getElementById('nav-profile').innerHTML = `<a href="#" style="color: #c5a880; font-weight: bold;">👤 ${user}</a>`;
+                document.getElementById('nav-logout').style.display = 'inline-block';
+            } else {
+                document.getElementById('nav-profile').style.display = 'none';
+                document.getElementById('nav-logout').style.display = 'none';
+                document.getElementById('nav-login').style.display = 'inline-block';
+                document.getElementById('nav-register').style.display = 'inline-block';
+            }
+        }
+
+        // --- YUKARI ÇIK BUTONU SİSTEMİ ---
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // Sayfa 100px'den fazla aşağı kaydırıldığında butonu göster
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        // Butona tıklandığında sayfanın en üstüne yumuşakça çık
+        function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+        // Müzik kontrolü
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggle = document.getElementById('musicToggle');
+        let musicPlaying = false;
+
+        musicToggle.addEventListener('click', () => {
+            if (musicPlaying) {
+                bgMusic.pause();
+                musicToggle.textContent = '🔇';
+            } else {
+                bgMusic.play().catch(e => console.log("Ses çalınamadı:", e));
+                musicToggle.textContent = '🎵';
+            }
+            musicPlaying = !musicPlaying;
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Karanlık Kütüphane. Tüm hakları saklıdır.</p>
+            <ul class="footer-links">
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="mailto:contact@karanklikkütüphane.com">İletişim</a></li>
+                <li><a href="#">Gizlilik Politikası</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>
