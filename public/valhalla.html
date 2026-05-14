@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erinyeler Kütüphane - Valhalla</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">👁️ Erinyeler Kütüphane</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="mitoloji.html" class="active">Mitoloji (Wiki)</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        </ul>
+    </nav>
+
+    <div class="character-wrapper">
+        <div class="character-page page-valhalla">
+            <div class="main-text">
+                <h1 style="color: var(--primary-color); font-size: 3.5rem; margin-bottom: 15px;">Valhalla</h1>
+                <p><strong>Valhalla</strong> (Ölülerin Salonu), İskandinav mitolojisinde Asgard'da bulunan, baş tanrı <a href="odin.html" class="wiki-link">Odin</a> tarafından yönetilen görkemli ve devasa bir salondur.</p>
+
+                <h2>Onurlu Savaşçıların Mekanı</h2>
+                <p>Savaş meydanında onuruyla ölen savaşçıların yarısı, <a href="valkyrieler.html" class="wiki-link">Valkyrieler</a> tarafından seçilerek buraya getirilir. Diğer yarısı ise tanrıça Freya'nın salonu olan Fólkvangr'a gider. Valhalla'ya giren bu savaşçılara <strong>Einherjar</strong> adı verilir.</p>
+
+                <h2>Sonsuz Hazırlık</h2>
+                <p>Valhalla'da yaşayan savaşçılar her gün birbirleriyle dövüşerek <a href="ragnarok.html" class="wiki-link">Ragnarök</a> gününe hazırlanırlar. Yaraları her akşam mucizevi bir şekilde iyileşir ve akşamları devasa ziyafetlerde bir araya gelirler. Salonun tavanı kalkanlardan, kirişleri mızraklardan yapılmıştır.</p>
+
+                <div style="margin-top: 50px;">
+                    <a href="iskandinav-mitolojisi.html" style="color: var(--accent-color); text-decoration: none; border: 1px solid var(--accent-color); padding: 10px 20px; border-radius: 5px; transition: 0.3s;">← Geri Dön</a>
+                    <button onclick="goToRandomCharacter()" class="random-btn">🎲 Rastgele Efsane</button>
+                </div>
+            </div>
+
+            <div class="infobox">
+                <h3>🏛️ Valhalla</h3>
+                <div style="text-align: center; font-size: 4rem; margin-bottom: 20px;">🛡️</div>
+                <div class="info-row"><span class="info-label">Konum:</span><span class="info-value">Asgard</span></div>
+                <div class="info-row"><span class="info-label">Ev Sahibi:</span><span class="info-value"><a href="odin.html" class="wiki-link">Odin</a></span></div>
+                <div class="info-row"><span class="info-label">Sakinleri:</span><span class="info-value">Einherjar & Valkyrieler</span></div>
+                <div class="info-row"><span class="info-label">Mimarisi:</span><span class="info-value">Mızraklar ve Kalkanlar</span></div>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Yukarı Çık">▲</button>
+
+    <script>
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+        function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+        function goToRandomCharacter() {
+            const characters = [
+                "zeus.html", "hades.html", "poseidon.html", "ares.html", "hera.html",
+                "athena.html", "apollon.html", "artemis.html", "afrodit.html", "hephaistos.html",
+                "hermes.html", "dionysos.html", "demeter.html", "hestia.html", "kronos.html",
+                "rhea.html", "gaia.html", "uranos.html", "tartaros.html", "kaos.html",
+                "eros.html", "nyx.html", "erebos.html", "pandora.html", "prometheus.html",
+                "kerberos.html", "kikloplar.html", "hekatonkheirler.html", "homeros.html",
+                "hesiodos.html", "persephone.html", "odin.html", "thor.html", "loki.html"
+            ];
+            const current = window.location.pathname.split("/").pop();
+            let randomChar = current;
+            while (randomChar === current) {
+                randomChar = characters[Math.floor(Math.random() * characters.length)];
+            }
+            window.location.href = randomChar;
+        }
+    </script>
+    <script src="music.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erinyeler Kütüphane - İletişim</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-section {
+            background: rgba(31, 40, 51, 0.85);
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+            margin-bottom: 30px;
+            text-align: left;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .contact-section h2 {
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .contact-section p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .contact-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-section ul li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+        .contact-section ul li a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-section ul li a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">👁️ Erinyeler Kütüphane</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="mitoloji.html">Mitoloji (Wiki)</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a href="https://discord.gg/caXr8amGg2" target="_blank" class="discord-button-glow">Discord'a Katıl</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1 style="color: var(--primary-color); font-size: 3rem;">İletişim</h1>
+            <p style="color: var(--text-color); font-size: 1.2rem;">Sorularınız, önerileriniz veya işbirliği talepleriniz için bize ulaşın.</p>
+        </div>
+
+        <div class="contact-section">
+            <h2>✉️ Bize Ulaşın</h2>
+            <p>Erinyeler Kütüphane ekibi olarak her türlü geri bildiriminize açığız. Aşağıdaki kanallardan bize ulaşabilirsiniz:</p>
+            <ul>
+                <li><strong>Kurucu (Mete YAYLABAŞ):</strong> <a href="mailto:meteyaylabas@gmail.com">meteyaylabas@gmail.com</a></li>
+                <li><strong>Geliştirici (Arda GÜNDÜZ):</strong> <a href="mailto:gunduzarda30@gmail.com">gunduzarda30@gmail.com</a></li>
+                <li><strong>Discord:</strong> <a href="https://discord.gg/caXr8amGg2" target="_blank">Discord Sunucumuza Katılın</a></li>
+            </ul>
+        </div>
+
+        <div class="contact-section">
+            <h2>📍 Adres</h2>
+            <p>Dijital bir kütüphane olsak da, ruhumuz kadim bilgilerin toplandığı gizli bir mekanda yaşıyor. Fiziksel bir adresimiz olmasa da, her zaman bir mesaj uzağınızdayız.</p>
+        </div>
+
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Yukarı Çık">▲</button>
+
+    <script>
+        window.addEventListener('load', () => { 
+            document.querySelector('.loader-wrapper').classList.add('loader-hidden'); 
+        });
+
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) scrollTopBtn.style.display = "block";
+            else scrollTopBtn.style.display = "none";
+        };
+        function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+    </script>
+    <script src="music.js" defer></script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Erinyeler Kütüphane. Tüm hakları saklıdır.</p>
+            <ul class="footer-links">
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erinyeler Kütüphane - Mitoloji Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">👁️ Erinyeler Kütüphane</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="mitoloji.html" class="active">Mitoloji (Wiki)</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a href="https://discord.gg/caXr8amGg2" target="_blank" class="discord-button-glow">Discord'a Katıl</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <div style="text-align: left; margin-bottom: 20px;">
+            <h1 style="color: #66fcf1; font-size: 2.5rem; margin-bottom: 10px;">Mitoloji Ansiklopedisi</h1>
+            <p style="color: #95a5a6; font-size: 1.15rem;">Kadim zamanlardan kalan efsaneleri seçin ve okumaya başlayın.</p>
+        </div>
+
+        <div class="entry" style="text-align: left; padding: 40px; border-left: 5px solid #45a29e; background: rgba(31, 40, 51, 0.85); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.6); margin-bottom: 40px;">
+            <h2 style="color: #c5a880; border-bottom: 1px solid #45a29e; padding-bottom: 10px; margin-bottom: 20px; font-size: 2.2rem;">Mitoloji Nedir?</h2>
+            <p style="color: #c5c6c7; font-size: 1.15rem; line-height: 1.9; margin-bottom: 15px;">
+                <strong>Mitoloji</strong> (Efsanebilim), insanlığın varoluşun gizemini, doğanın öfkesini ve ölümün kaçınılmazlığını anlamlandırmak için yarattığı en görkemli hikayeler bütünüdür. Kuru bir masal ya da uydurma bir din değil; ilkel insanın gök gürültüsünde bir tanrının öfkesini, tarlaların yeşermesinde bir tanrıçanın sevincini görme çabasıdır.
+            </p>
+            <p style="color: #c5c6c7; font-size: 1.15rem; line-height: 1.9;">
+                Eski çağlarda insanlar kaosu düzene sokmak, bilinmeyeni tanımlamak ve kendi sınırlarını çizmek için doğaüstü varlıklara, devasa yaratıklara ve destansı kahramanlara başvurdular. <em>Erinyeler Kütüphane'de</em>, yüzyıllar boyunca toprağın altında kalmış bu kanlı, tutkulu ve trajik kökenlere iniyoruz.
+            </p>
+        </div>
+
+        <!-- ARAMA ALANI -->
+        <div class="search-container">
+            <input type="text" id="wikiSearchInput" class="search-input" placeholder="Tanrı, kahraman veya yaratık ara... (Örn: Zeus, Kerberos)" onkeyup="filterWiki()">
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+        <!-- POPÜLER KARAKTERLER -->
+        <div style="text-align: left; margin-bottom: 15px;">
+            <h2 style="color: #66fcf1; font-size: 1.8rem; border-bottom: 1px solid #45a29e; padding-bottom: 10px;">🔥 Popüler Karakterler</h2>
+        </div>
+
+        <div id="popularCharactersGrid" class="wiki-grid" style="margin-top: 20px; margin-bottom: 60px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+            <!-- JavaScript ile Rastgele Doldurulacak -->
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <h2 style="color: #c5a880; font-size: 1.8rem; border-bottom: 1px solid #45a29e; padding-bottom: 10px;">📚 Mitoloji Evrenleri</h2>
+        </div>
+
+        <div class="wiki-grid" style="margin-bottom: 50px;">
+            
+            <div class="wiki-card" onclick="window.location.href='yunan-mitolojisi.html'">
+                <h3>🏛️ Yunan Mitolojisi</h3>
+                <p>Olympos'un zirvesinden Yeraltı'nın derinliklerine; Zeus, Hades, Poseidon ve titanların savaşı.</p>
+            </div>
+            
+            <div class="wiki-card" onclick="window.location.href='misir-mitolojisi.html'">
+                <h3>🌵 Mısır Mitolojisi</h3>
+                <p>Piramitlerin gölgesinde Ra, Anubis, Osiris ve çöl rüzgarlarının taşıdığı sırlar.</p>
+            </div>
+            
+            <div class="wiki-card" onclick="window.location.href='iskandinav-mitolojisi.html'">
+                <h3>❄️ İskandinav Mitolojisi</h3>
+                <p>Ragnarök'ün ayak sesleri; Odin, Thor, Loki ve soğuk kuzeyin devasa yaratıkları.</p>
+            </div>
+
+            <div class="wiki-card" onclick="window.location.href='turk-mitolojisi.html'">
+                <h3>🐺 Türk Mitolojisi</h3>
+                <p>Ergenekon'un sarp kayalıklarından, Gök Tanrı'nın sonsuz göğüne; şamanların, asenaların ve yeraltı efendisi Erlik Han'ın destanı.</p>
+            </div>
+
+            <div class="wiki-card" onclick="window.location.href='balcik-mitolojisi.html'">
+                <h3>🌑 Balçık Mitolojisi</h3>
+                <p>İlk insanın yaratıldığı karanlık çamurdan, toprağın derinliklerinde uyuyan isimsiz ruhlara ve kilden doğan efsanelere...</p>
+            </div>
+
+            <div class="wiki-card" onclick="window.location.href='cin-mitolojisi.html'">
+                <h3>🐉 Çin Mitolojisi</h3>
+                <p>Yeşim İmparator'un göksel sarayından, yin ve yang'ın sonsuz dengesine; ejderhaların ve ölümsüzlerin bin yıllık dansı.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Yukarı Çık">▲</button>
+
+    <script>
+        // --- YÜKLENİYOR EKRANI ---
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-wrapper');
+            renderRandomCharacters(); // Karakterleri karıştır ve yükle
+            loader.classList.add('loader-hidden');
+        });
+        // Sitedeki tüm sayfaların veritabanı
+        const wikiData = [
+            { name: "Zeus", url: "zeus.html", type: "Tanrı Kral", icon: "⚡" },
+            { name: "Hades", url: "hades.html", type: "Yeraltı Tanrısı", icon: "💀" },
+            { name: "Poseidon", url: "poseidon.html", type: "Deniz Tanrısı", icon: "🌊" },
+            { name: "Ares", url: "ares.html", type: "Savaş Tanrısı", icon: "⚔️" },
+            { name: "Hera", url: "hera.html", type: "Tanrıça", icon: "👑" },
+            { name: "Athena", url: "athena.html", type: "Bilgelik Tanrıçası", icon: "🦉" },
+            { name: "Apollon", url: "apollon.html", type: "Sanat Tanrısı", icon: "☀️" },
+            { name: "Artemis", url: "artemis.html", type: "Avcı Tanrıça", icon: "🦌" },
+            { name: "Afrodit", url: "afrodit.html", type: "Aşk Tanrıçası", icon: "🌸" },
+            { name: "Hephaistos", url: "hephaistos.html", type: "Demirci Tanrı", icon: "🔨" },
+            { name: "Hermes", url: "hermes.html", type: "Haberci Tanrı", icon: "🪽" },
+            { name: "Dionysos", url: "dionysos.html", type: "Şarap Tanrısı", icon: "🍷" },
+            { name: "Demeter", url: "demeter.html", type: "Tarım Tanrıçası", icon: "🌾" },
+            { name: "Hestia", url: "hestia.html", type: "Ocak Tanrıçası", icon: "🔥" },
+            { name: "Kronos", url: "kronos.html", type: "Titan", icon: "⏳" },
+            { name: "Rhea", url: "rhea.html", type: "Titan", icon: "🤱" },
+            { name: "Gaia", url: "gaia.html", type: "İlkel (Toprak)", icon: "🌍" },
+            { name: "Uranos", url: "uranos.html", type: "İlkel (Gök)", icon: "🌌" },
+            { name: "Tartaros", url: "tartaros.html", type: "İlkel (Çukur)", icon: "🕳️" },
+            { name: "Kaos", url: "kaos.html", type: "Başlangıç", icon: "🌀" },
+            { name: "Eros", url: "eros.html", type: "İlkel Güç", icon: "💖" },
+            { name: "Nyx", url: "nyx.html", type: "Gece Tanrıçası", icon: "🌙" },
+            { name: "Erebos", url: "erebos.html", type: "Karanlık", icon: "🌑" },
+            { name: "Pandora", url: "pandora.html", type: "İlk Kadın", icon: "🏺" },
+            { name: "Prometheus", url: "prometheus.html", type: "Titan", icon: "🔥" },
+            { name: "Kerberos", url: "kerberos.html", type: "Yaratık", icon: "🐕" },
+            { name: "Kikloplar", url: "kikloplar.html", type: "Devler", icon: "👁️" },
+            { name: "Hekatonkheirler", url: "hekatonkheirler.html", type: "Devler", icon: "🖐️" },
+            { name: "Homeros", url: "homeros.html", type: "Ozan", icon: "📜" },
+            { name: "Hesiodos", url: "hesiodos.html", type: "Ozan", icon: "📖" },
+            { name: "Yunan Mitolojisi", url: "yunan-mitolojisi.html", type: "Ana Kategori", icon: "🏛️" },
+            { name: "Mısır Mitolojisi", url: "misir-mitolojisi.html", type: "Ana Kategori", icon: "🌵" },
+            { name: "İskandinav Mitolojisi", url: "iskandinav-mitolojisi.html", type: "Ana Kategori", icon: "❄️" },
+            { name: "Odin", url: "odin.html", type: "Baş Tanrı", icon: "👑" },
+            { name: "Thor", url: "thor.html", type: "Gök Gürültüsü Tanrısı", icon: "⚡" },
+            { name: "Loki", url: "loki.html", type: "Hilebaz Tanrı", icon: "🐍" },
+            { name: "Yggdrasil", url: "yggdrasil.html", type: "Dünya Ağacı", icon: "🌳" },
+            { name: "Helheim", url: "helheim.html", type: "Ölüler Diyarı", icon: "💀" },
+            { name: "Asgard", url: "asgard.html", type: "Diyar", icon: "🏰" },
+            { name: "Midgard", url: "midgard.html", type: "Diyar", icon: "🌍" },
+            { name: "Jotunheim", url: "jotunheim.html", type: "Diyar", icon: "🏔️" },
+            { name: "Vanaheim", url: "vanaheim.html", type: "Diyar", icon: "🌿" },
+            { name: "Alfheim", url: "alfheim.html", type: "Diyar", icon: "☀️" },
+            { name: "Niðavellir", url: "nidavellir.html", type: "Diyar", icon: "🔨" },
+            { name: "Ragnarök", url: "ragnarok.html", type: "Kıyamet", icon: "🔥" },
+            { name: "Valhalla", url: "valhalla.html", type: "Mekan", icon: "🏛️" },
+            { name: "Kahramanlar", url: "kahramanlar.html", type: "Grup", icon: "🛡️" },
+            { name: "Titanlar", url: "titanlar.html", type: "Grup", icon: "🗿" },
+            { name: "Tanrılar", url: "tanrilar.html", type: "Grup", icon: "⚡" }
+        ];
+
+        function filterWiki() {
+            const input = document.getElementById("wikiSearchInput");
+            const filter = input.value.toUpperCase();
+            const resultsDiv = document.getElementById("searchResults");
+            resultsDiv.innerHTML = "";
+
+            if (!filter) { resultsDiv.style.display = "none"; return; }
+
+            const filtered = wikiData.filter(item => item.name.toUpperCase().indexOf(filter) > -1);
+
+            if (filtered.length > 0) {
+                resultsDiv.style.display = "block";
+                filtered.forEach(item => {
+                    const div = document.createElement("a");
+                    div.className = "search-result-item";
+                    div.href = item.url;
+                    div.innerHTML = `<span>${item.icon || ''} ${item.name}</span> <span class="result-type">${item.type}</span>`;
+                    resultsDiv.appendChild(div);
+                });
+            } else {
+                resultsDiv.style.display = "none";
+            }
+        }
+
+        // --- RASTGELE KARAKTER LİSTELEME ---
+        function renderRandomCharacters() {
+            const grid = document.getElementById('popularCharactersGrid');
+            
+            // Sadece karakter olanları filtrele (Kategorileri ve Grupları hariç tut)
+            const characters = wikiData.filter(item => item.type !== "Ana Kategori" && item.type !== "Grup");
+            
+            // Diziyi karıştır (Fisher-Yates Shuffle)
+            for (let i = characters.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [characters[i], characters[j]] = [characters[j], characters[i]];
+            }
+            
+            // İlk 4 tanesini seç ve ekrana bas
+            const selected = characters.slice(0, 4);
+            
+            grid.innerHTML = selected.map(char => `
+                <div class="wiki-card" onclick="window.location.href='${char.url}'" style="padding: 20px;">
+                    <h3 style="margin:0; font-size: 1.4rem;">${char.icon} ${char.name}</h3>
+                    <p style="margin:5px 0 0 0; font-size:0.9rem; color:#95a5a6;">${char.type}</p>
+                </div>
+            `).join('');
+        }
+
+        function simulateLogin(event) {
+            event.preventDefault(); 
+            const isDiscord = event.target.classList.contains('discord-btn');
+            const user = isDiscord ? 'Discord Kullanıcısı' : 'Mail Kullanıcısı';
+            
+            localStorage.setItem('currentUser', user);
+            checkAuth();
+            closeModal('loginModal');
+            closeModal('registerModal');
+        }
+
+        function simulateLogout() {
+            logout();
+        }
+
+        function checkAuth() {
+            const user = localStorage.getItem('currentUser');
+            const navLogin = document.getElementById('nav-login'), navRegister = document.getElementById('nav-register'), navProfile = document.getElementById('nav-profile'), navLogout = document.getElementById('nav-logout');
+            if (user) {
+                navLogin.style.display = 'none';
+                navRegister.style.display = 'none';
+                navProfile.style.display = 'inline-block';
+                navProfile.querySelector('a').innerHTML = `👤 ${user}`;
+                navLogout.style.display = 'inline-block';
+            } else {
+                navProfile.style.display = 'none';
+                navLogout.style.display = 'none';
+                navLogin.style.display = 'inline-block';
+                navRegister.style.display = 'inline-block';
+            }
+        }
+
+        // --- YUKARI ÇIK BUTONU SİSTEMİ ---
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // Sayfa 100px'den fazla aşağı kaydırıldığında butonu göster
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        // Butona tıklandığında sayfanın en üstüne yumuşakça çık
+        function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+    </script>
+    <script src="music.js" defer></script>
+
+</body>
+</html>
