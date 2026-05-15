@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeraltı - Poseidon</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .character-wrapper { max-width: 1200px; margin: 40px auto; padding: 0 40px; }
+        .character-page { display: flex; gap: 50px; text-align: left; align-items: flex-start; }
+        .main-text { flex: 3; }
+        .infobox { flex: 1; background: #1f2833; border: 1px solid #c5a880; border-radius: 8px; padding: 20px; height: fit-content; min-width: 300px; position: sticky; top: 100px; }
+        .infobox h3 { text-align: center; color: #c5a880; border-bottom: 1px solid #c5a880; padding-bottom: 10px; margin-bottom: 15px; font-size: 1.5rem; }
+        .info-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; border-bottom: 1px dashed #45a29e; padding-bottom: 8px; }
+        .info-label { font-weight: bold; color: #66fcf1; }
+        .info-value { color: #c5c6c7; text-align: right; }
+        h2 { color: #c5a880; border-bottom: 1px solid #45a29e; padding-bottom: 5px; margin: 40px 0 20px 0; font-size: 1.8rem; }
+        p { line-height: 1.8; font-size: 1.15rem; margin-bottom: 20px; color: #c5c6c7; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">👁️ Karanlık Kütüphane</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="mitoloji.html" class="active">Mitoloji (Wiki)</a></li>
+            <li><a href="sozluk.html">Yeraltı Sözlük</a></li>
+        </ul>
+    </nav>
+
+    <div class="character-wrapper">
+        <div class="character-page">
+            
+            <div class="main-text">
+                <h1 style="color: #c5a880; font-size: 3.5rem; margin-bottom: 15px;">Poseidon</h1>
+                <p><strong>Poseidon</strong>, denizlerin, okyanusların, fırtınaların, depremlerin ve atların tanrısıdır. Olympos'un en güçlü tanrılarından biri olup, öfkesiyle ve denizcilerin korkulu rüyası olmasıyla bilinir. Ona sıklıkla <em>"Yeri Sarsan"</em> (Ennosigaios) unvanı verilir.</p>
+
+                <h2>Hakimiyeti ve Gücü</h2>
+                <p>Dünya üç kardeş arasında paylaşıldığında Poseidon'a sular alemi düşmüştür. <a href="zeus.html" class="wiki-link">Zeus</a> kadar kudretli olsa da gökyüzünün otoritesine boyun eğmek zorundadır. Ancak kendi krallığı olan denizlerde mutlak hakimdir.</p>
+                <p>Silahı, Kikloplar tarafından yapılan sihirli <strong>Üç Dişli Yaba'dır (Trident)</strong>. Poseidon bu yabayı yere vurduğunda kıtaları sarsan depremler yaratabilir, denize vurduğunda ise devasa tsunamiler ve fırtınalar koparabilir.</p>
+
+                <h2>Karakteri ve Efsaneleri</h2>
+                <p>Poseidon son derece asabi, inatçı ve kindar bir tanrıdır. Bir kere öfkelendiğinde kini yıllarca sürebilir (Odysseia destanında Odysseus'a on yıl boyunca çektirdiği çileler bunun en büyük örneğidir). Atina şehrinin koruyuculuğu için yeğeni <a href="athena.html" class="wiki-link">Athena</a> ile yarışmış, Athena zeytin ağacını verip kazanınca Poseidon öfkeyle şehri susuzlukla lanetlemiştir.</p>
+
+                <div style="margin-top: 50px;">
+                    <a href="#" onclick="history.back(); return false;" style="color: #66fcf1; text-decoration: none; border: 1px solid #66fcf1; padding: 10px 20px; border-radius: 5px; transition: 0.3s;" onmouseover="this.style.background='#66fcf1'; this.style.color='#0b0c10'" onmouseout="this.style.background='transparent'; this.style.color='#66fcf1'">← Geri Dön</a>
+                    <button onclick="goToRandomCharacter()" class="random-btn">🎲 Rastgele Efsane</button>
+                </div>
+            </div>
+
+            <div class="infobox">
+                <h3>🌊 Poseidon</h3>
+                <div style="text-align: center; font-size: 4rem; margin-bottom: 20px;">🔱</div>
+                
+                <div class="info-row">
+                    <span class="info-label">Görevi:</span>
+                    <span class="info-value">Denizlerin Tanrısı</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Ebeveynleri:</span>
+                    <span class="info-value"><a href="kronos.html" class="wiki-link">Kronos</a> ve <a href="rhea.html" class="wiki-link">Rhea</a></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Eşi:</span>
+                    <span class="info-value">Amphitrite</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Mekanı:</span>
+                    <span class="info-value">Ege Denizi</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Sembolleri:</span>
+                    <span class="info-value">Yaba, At, Yunus</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Roma Karşılığı:</span>
+                    <span class="info-value">Neptün</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Yukarı Çık">▲</button>
+
+    <script>
+        // --- YUKARI ÇIK BUTONU SİSTEMİ ---
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+        // --- RASTGELE KARAKTERE GİT ---
+        function goToRandomCharacter() {
+            const characters = [
+                "zeus.html", "hades.html", "poseidon.html", "ares.html", "hera.html",
+                "athena.html", "apollon.html", "artemis.html", "afrodit.html", "hephaistos.html",
+                "hermes.html", "dionysos.html", "demeter.html", "hestia.html", "kronos.html",
+                "rhea.html", "gaia.html", "uranos.html", "tartaros.html", "kaos.html",
+                "eros.html", "nyx.html", "erebos.html", "pandora.html", "prometheus.html",
+                "kerberos.html", "kikloplar.html", "hekatonkheirler.html", "homeros.html",
+                "hesiodos.html", "persephone.html"
+            ];
+            
+            const current = window.location.pathname.split("/").pop();
+            let randomChar = current;
+            while (randomChar === current) {
+                randomChar = characters[Math.floor(Math.random() * characters.length)];
+            }
+            window.location.href = randomChar;
+        }
+    </script>
+
+</body>
+</html>

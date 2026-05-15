@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erinyeler Kütüphane - Efsanevi Objeler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">👁️ Erinyeler Kütüphane</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="mitoloji.html" class="active">Mitoloji (Wiki)</a></li>
+        </ul>
+    </nav>
+
+    <div class="character-wrapper">
+        <div class="character-page">
+            <div class="main-text">
+                <h1 style="color: var(--primary-color); font-size: 3.5rem; margin-bottom: 15px;">Efsanevi Objeler</h1>
+                <p>İskandinav mitolojisi, sadece tanrılar ve devlerle değil, aynı zamanda bu varlıkların kullandığı, cüce ustalığıyla (Dvergar) dövülmüş muazzam güçlere sahip objelerle de doludur.</p>
+
+                <h2>Loki'nin Bahsi: Efsanevi Eserlerin Kökeni</h2>
+                <p>Mitolojideki en meşhur eserlerin çoğu, <a href="loki.html" class="wiki-link">Loki</a>'nin bir kurnazlığı ve ardından girdiği bir iddia sonucu ortaya çıkmıştır. Loki, Thor'un eşi Sif'in saçlarını şaka olsun diye kestiğinde, Thor onu öldürmekle tehdit eder. Loki, Ivaldi'nin oğulları olan cücelere giderek onlara Sif için altından saçlar yaptırır. Yanında da <strong>Gungnir</strong> ve <strong>Skidbladnir</strong>'i alır.</p>
+                <p>Loki bununla yetinmez ve cüce kardeşler Sindri ve Brokk'a giderek Ivaldi'nin oğullarından daha iyi eserler yapamayacaklarını söyler ve kellesi üzerine bahse girer. Bu çekişme sonucunda <strong>Gullinbursti</strong>, <strong>Draupnir</strong> ve son olarak <strong>Mjölnir</strong> dövülür. Tanrılar Mjölnir'i en iyi eser seçince Loki bahsi kaybeder, ancak "kellesini alabileceklerini ama boynuna dokunmamaları gerektiğini" iddia ederek kurnazlıkla ölümden kurtulur.</p>
+
+                <h2>Mjölnir (Thor'un Çekici)</h2>
+                <p><strong>Mjölnir</strong>, gök gürültüsü tanrısı <a href="thor.html" class="wiki-link">Thor</a>'un efsanevi çekicidir. Çekiç asla hedefinden şaşmaz ve fırlatıldıktan sonra Thor'un eline geri döner. Sapının kısa kalması, dövülme işlemi sırasında Loki'nin bir sinek kılığında demirciyi rahatsız etmesi sonucu bir "üretim hatası" değil, çekicin ağırlık merkezini belirleyen bir özellik olarak kalmıştır.</p>
+
+                <h2>Gungnir (Odin'in Mızrağı)</h2>
+                <p><strong>Gungnir</strong>, baş tanrı <a href="odin.html" class="wiki-link">Odin</a>'in rünlerle kaplı mızrağıdır. Ivaldi'nin oğulları tarafından yapılmıştır. Bu mızrağın en büyük özelliği, havada fırlatıldığında rüzgarı delip geçmesi ve asla hedefinden sapmamasıdır. Odin, kozmik bilgeliği öğrenmek için kendisini Dünya Ağacı'na bu mızrakla asmıştır.</p>
+
+                <h2>Draupnir (Odin'in Altın Yüzüğü)</h2>
+                <p><strong>Draupnir</strong> (Damlatıcı), Odin'e ait efsanevi bir altın yüzüktür. Cüce Brokk ve Eitri tarafından dövülmüştür. Bu yüzük, her dokuzuncu gecede kendisiyle aynı ağırlıkta sekiz yeni altın yüzük "damlatma" (üretme) yeteneğine sahiptir. Bu, Odin'in bitmek bilmez zenginliğini ve iktidarını simgeler.</p>
+
+                <h2>Skidbladnir (Freyr'in Gemisi)</h2>
+                <p><strong>Skidbladnir</strong>, Ivaldi'nin oğulları tarafından yapılmıştır. Tüm tanrı ordusunu taşıyacak kadar büyük olmasına rağmen, yelkenleri açıldığında rüzgar her zaman onun lehine eser. En şaşırtıcı özelliği ise, kullanılmadığında bir mendil gibi katlanıp bir keseye sığabilmesidir.</p>
+
+                <h2>Gullinbursti (Altın Domuz)</h2>
+                <p><strong>Gullinbursti</strong>, bereket tanrısı Freyr'e ait efsanevi bir domuzdur. Sindri ve Brokk tarafından yapılan bu varlık, sudan ve havadan her türlü attan daha hızlı geçebilir. Altın kılları sayesinde en zifiri karanlık gecelerde bile etrafını aydınlatır.</p>
+
+                <div style="margin-top: 50px;">
+                    <a href="iskandinav-mitolojisi.html" style="color: var(--accent-color); text-decoration: none; border: 1px solid var(--accent-color); padding: 10px 20px; border-radius: 5px; transition: 0.3s;">← Geri Dön</a>
+                    <button onclick="goToRandomCharacter()" class="random-btn">🎲 Rastgele Efsane</button>
+                </div>
+            </div>
+
+            <div class="infobox">
+                <h3>🛡️ Efsanevi Eserler</h3>
+                <div style="text-align: center; font-size: 4rem; margin-bottom: 20px;">💍</div>
+                <div class="info-row"><span class="info-label">En Güçlü Silah:</span><span class="info-value">Mjölnir</span></div>
+                <div class="info-row"><span class="info-label">Odin'in Silahı:</span><span class="info-value">Gungnir</span></div>
+                <div class="info-row"><span class="info-label">Odin'in Takısı:</span><span class="info-value">Draupnir</span></div>
+                <div class="info-row"><span class="info-label">Freyr'in Gemisi:</span><span class="info-value">Skidbladnir</span></div>
+                <div class="info-row"><span class="info-label">Bineği:</span><span class="info-value">Gullinbursti</span></div>
+                <div class="info-row"><span class="info-label">Zanaatkarlar:</span><span class="info-value">Cüceler (Sindri, Brokk)</span></div>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Yukarı Çık">▲</button>
+
+    <script>
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) scrollTopBtn.style.display = "block";
+            else scrollTopBtn.style.display = "none";
+        };
+        function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+        function goToRandomCharacter() {
+            const characters = [
+                "zeus.html", "hades.html", "poseidon.html", "ares.html", "hera.html",
+                "athena.html", "apollon.html", "artemis.html", "afrodit.html", "hephaistos.html",
+                "hermes.html", "dionysos.html", "demeter.html", "hestia.html", "kronos.html",
+                "rhea.html", "gaia.html", "uranos.html", "tartaros.html", "kaos.html",
+                "eros.html", "nyx.html", "erebos.html", "pandora.html", "prometheus.html",
+                "kerberos.html", "kikloplar.html", "hekatonkheirler.html", "homeros.html",
+                "hesiodos.html", "persephone.html", "odin.html", "thor.html", "loki.html",
+                "yggdrasil.html", "helheim.html", "ragnarok.html", "valhalla.html", "mjolnir.html",
+                "asgard.html", "jotunheim.html", "midgard.html"
+            ];
+            const current = window.location.pathname.split("/").pop();
+            let randomChar = current;
+            while (randomChar === current) randomChar = characters[Math.floor(Math.random() * characters.length)];
+            window.location.href = randomChar;
+        }
+    </script>
+    <script src="music.js" defer></script>
+</body>
+</html>

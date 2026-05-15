@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erinyeler Kütüphane - Ragnarök</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">👁️ Erinyeler Kütüphane</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="mitoloji.html" class="active">Mitoloji (Wiki)</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        </ul>
+    </nav>
+
+    <div class="character-wrapper">
+        <div class="character-page page-ragnarok">
+            <div class="main-text">
+                <h1 style="color: var(--primary-color); font-size: 3.5rem; margin-bottom: 15px;">Ragnarök</h1>
+                <p><strong>Ragnarök</strong>, İskandinav mitolojisinde dünyanın sonunu, tanrıların alacakaranlığını ve evrenin yeniden doğuşunu simgeleyen büyük kıyamettir. Bu sadece bir yıkım değil, eski düzenin temizlenip yeni bir döngünün başlamasıdır.</p>
+
+                <h2>Kıyametin İşaretleri</h2>
+                <p>Ragnarök, üç yıl sürecek olan ve güneşin sıcaklığının hiç hissedilmeyeceği <strong>Fimbulwinter</strong> (Büyük Kış) ile başlar. Ahlaki çöküş dünyayı sarar, kardeş kardeşi katleder ve kaos hakim olur. Gökyüzündeki dev kurtlar güneşi ve ayı yutar, dünya karanlığa gömülür.</p>
+
+                <h2>Büyük Savaş ve Çöküş</h2>
+                <p>Mühürler kırıldığında, <a href="loki.html" class="wiki-link">Loki</a> ve devler ordusu <a href="odin.html" class="wiki-link">Odin</a>'in karşısına dikilir. <a href="thor.html" class="wiki-link">Thor</a> dünya yılanı ile son kez çarpışır, Odin kurt tarafından yutulur ve ateş devi Surtr'un alevli kılıcıyla tüm evren küle döner.</p>
+
+                <h2>Stratejik Analiz: Taarruz Planı</h2>
+                <p>Ragnarök sadece bir öfke patlaması değil, kaos güçleri tarafından koordine edilen çok yönlü bir askeri harekattır. Savaşın ana evreleri şu şekilde analiz edilebilir:</p>
+                <ul>
+                    <li><strong>Güney Kuşatması:</strong> Surtr liderliğindeki Muspel ordusu, Bifrost köprüsünü (Asgard'ın ana ikmal yolu) termal saldırı ile imha ederek savunma hattını kırar.</li>
+                    <li><strong>Doğu Çıkartması:</strong> Dev gemi <em>Naglfar</em>, Jotunheim ve Helheim birliklerini Vigrid ovasına ulaştırarak doğu kanadından bir deniz indirmesi gerçekleştirir.</li>
+                    <li><strong>Alan Hakimiyeti:</strong> Jörmungandr, deniz seviyesini yükselterek coğrafi avantajı değiştirir ve kimyasal bir harp unsuru olarak atmosferi zehirler.</li>
+                    <li><strong>Savunma Hattı:</strong> Heimdall'ın erken uyarısıyla mobilize olan Aesir ve Einherjar birlikleri, düşmanı Vigrid ovasında karşılayarak bir merkezi hat savunması kurar.</li>
+                </ul>
+
+                <div style="margin-top: 50px;">
+                    <a href="iskandinav-mitolojisi.html" style="color: var(--accent-color); text-decoration: none; border: 1px solid var(--accent-color); padding: 10px 20px; border-radius: 5px; transition: 0.3s;">← Geri Dön</a>
+                    <button onclick="goToRandomCharacter()" class="random-btn">🎲 Rastgele Efsane</button>
+                </div>
+            </div>
+
+            <div class="infobox">
+                <h3>🔥 Ragnarök</h3>
+                <div style="text-align: center; font-size: 4rem; margin-bottom: 20px;">⚔️</div>
+                <div class="info-row"><span class="info-label">Anlamı:</span><span class="info-value">Tanrıların Kaderi</span></div>
+                <div class="info-row"><span class="info-label">Başlangıç:</span><span class="info-value">Fimbulwinter</span></div>
+                <div class="info-row"><span class="info-label">Ana Aktörler:</span><span class="info-value">Odin, Loki, Surtr</span></div>
+                <div class="info-row"><span class="info-label">Sonuç:</span><span class="info-value">Evrenin Yeniden Doğuşu</span></div>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Yukarı Çık">▲</button>
+
+    <script>
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+        function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+        function goToRandomCharacter() {
+            const characters = [
+                "zeus.html", "hades.html", "poseidon.html", "ares.html", "hera.html",
+                "athena.html", "apollon.html", "artemis.html", "afrodit.html", "hephaistos.html",
+                "hermes.html", "dionysos.html", "demeter.html", "hestia.html", "kronos.html",
+                "rhea.html", "gaia.html", "uranos.html", "tartaros.html", "kaos.html",
+                "eros.html", "nyx.html", "erebos.html", "pandora.html", "prometheus.html",
+                "kerberos.html", "kikloplar.html", "hekatonkheirler.html", "homeros.html",
+                "hesiodos.html", "persephone.html", "odin.html", "thor.html", "loki.html"
+            ];
+            const current = window.location.pathname.split("/").pop();
+            let randomChar = current;
+            while (randomChar === current) {
+                randomChar = characters[Math.floor(Math.random() * characters.length)];
+            }
+            window.location.href = randomChar;
+        }
+    </script>
+    <script src="music.js" defer></script>
+</body>
+</html>

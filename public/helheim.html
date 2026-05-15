@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erinyeler Kütüphane - Helheim</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">👁️ Erinyeler Kütüphane</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="mitoloji.html" class="active">Mitoloji (Wiki)</a></li>
+        </ul>
+    </nav>
+
+    <div class="character-wrapper">
+        <div class="character-page">
+            <div class="main-text">
+                <h1 style="color: var(--primary-color); font-size: 3.5rem; margin-bottom: 15px;">Helheim</h1>
+                <p><strong>Helheim</strong> (veya sadece Hel), İskandinav mitolojisinde onursuzca, hastalıktan veya yaşlılıktan ölenlerin ruhlarının gittiği ebedi sis, buz ve karanlık diyarıdır.</p>
+
+                <h2>Karanlık Kraliçe'nin Tahtı</h2>
+                <p>Diyar, Loki'nin kızı <strong>Hel</strong> tarafından yönetilir. Helheim'daki sarayı <em>Éljúðnir</em> adını taşır ve buraya girenler için geri dönüş yoktur. Valhalla'nın aksine burası bir ödüllendirme yeri değil, sessiz ve kasvetli bir varoluş alanıdır.</p>
+
+                <h2>Diyarın Sınırları ve Gjöll</h2>
+                <p>Helheim'a giden yol dikey bir iniş gerektirir. Diyarı yaşayanların dünyasından buz gibi akan <strong>Gjöll</strong> nehri ayırır. Bu nehrin üzerinde tek bir geçiş noktası olan altın kaplı <em>Gjallarbru</em> köprüsü bulunur. Giriş kapıları ise korkunç köpek <strong>Garm</strong> tarafından korunur.</p>
+
+                <div style="margin-top: 50px;">
+                    <a href="iskandinav-mitolojisi.html" style="color: var(--accent-color); text-decoration: none; border: 1px solid var(--accent-color); padding: 10px 20px; border-radius: 5px; transition: 0.3s;">← Geri Dön</a>
+                    <button onclick="goToRandomCharacter()" class="random-btn">🎲 Rastgele Efsane</button>
+                </div>
+            </div>
+
+            <div class="infobox">
+                <h3>💀 Helheim</h3>
+                <div style="text-align: center; font-size: 4rem; margin-bottom: 20px;">🕯️</div>
+                <div class="info-row"><span class="info-label">Tür:</span><span class="info-value">Diyar (Ölüler Dünyası)</span></div>
+                <div class="info-row"><span class="info-label">Hükümdar:</span><span class="info-value"><a href="hel.html" class="wiki-link">Hel</a></span></div>
+                <div class="info-row"><span class="info-label">Konum:</span><span class="info-value">Niflheim'ın Derinlikleri</span></div>
+                <div class="info-row"><span class="info-label">Bekçi:</span><span class="info-value">Garm</span></div>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Yukarı Çık">▲</button>
+
+    <script>
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+        function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+        function goToRandomCharacter() {
+            const characters = [
+                "zeus.html", "hades.html", "poseidon.html", "ares.html", "hera.html",
+                "athena.html", "apollon.html", "artemis.html", "afrodit.html", "hephaistos.html",
+                "hermes.html", "dionysos.html", "demeter.html", "hestia.html", "kronos.html",
+                "rhea.html", "gaia.html", "uranos.html", "tartaros.html", "kaos.html",
+                "eros.html", "nyx.html", "erebos.html", "pandora.html", "prometheus.html",
+                "kerberos.html", "kikloplar.html", "hekatonkheirler.html", "homeros.html",
+                "hesiodos.html", "persephone.html", "odin.html", "thor.html", "loki.html",
+                "yggdrasil.html", "helheim.html", "ragnarok.html", "valhalla.html", "mjolnir.html",
+                "asgard.html", "jotunheim.html", "midgard.html", "vanaheim.html", "alfheim.html", "nidavellir.html",
+                "niflheim.html", "muspelheim.html"
+            ];
+            const current = window.location.pathname.split("/").pop();
+            let randomChar = current;
+            while (randomChar === current) {
+                randomChar = characters[Math.floor(Math.random() * characters.length)];
+            }
+            window.location.href = randomChar;
+        }
+    </script>
+    <script src="music.js" defer></script>
+</body>
+</html>

@@ -8,11 +8,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Statik dosyaları sun
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname)); // Dosyaları root'a taşırsan burayı bu şekilde güncelle
 
 // Diğer tüm GET istekleri için 404 sayfası (API yollarını etkilemez)
 app.get('*', (req, res) => {
-    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+    res.status(404).sendFile(path.join(__dirname, '404.html'));
 });
 
 app.listen(PORT, () => {
